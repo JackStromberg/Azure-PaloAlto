@@ -31,7 +31,9 @@
             "allowedValues": [
                 "7.1.1",
                 "8.0.0",
-                "8.1.0"
+                "8.1.0",
+                "9.0.1",
+                "latest"
             ],
             "defaultValue": "8.1.0",
             "metadata": {
@@ -61,6 +63,10 @@
             }
         },
         "envPrefix": {
+            "type": "string",
+            "defaultValue": "Contoso-FW"
+        },
+        "baseVMPrefix": {
             "type": "string",
             "defaultValue": "Contoso-FW"
         },
@@ -339,7 +345,7 @@
         {
             "apiVersion": "2017-03-30",
             "type": "Microsoft.Compute/virtualMachines",
-            "name": "[concat(parameters('envPrefix'),'-',copyIndex(1))]",
+            "name": "[concat(parameters('envPrefix'), '-', parameters('baseVMPrefix'), '-', copyIndex(1))]",
             "location": "[resourceGroup().location]",
             "plan": {
                 "name": "[parameters('PASku')]",
