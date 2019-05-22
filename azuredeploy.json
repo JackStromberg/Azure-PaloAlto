@@ -68,7 +68,7 @@
         },
         "baseVMPrefix": {
             "type": "string",
-            "defaultValue": "Contoso-FW"
+            "defaultValue": "vmName"
         },
         "manPrivateIPPrefix": {
             "type": "string",
