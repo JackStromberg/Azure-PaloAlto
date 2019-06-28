@@ -30,10 +30,11 @@
             "type": "string",
             "allowedValues": [
                 "7.1.1",
-                "8.0.0",
-                "8.1.0"
+                "8.0.17",
+                "8.1.0",
+                "9.0.1"
             ],
-            "defaultValue": "8.1.0",
+            "defaultValue": "9.0.1",
             "metadata": {
                 "description": "Version of PanOS to use."
             }
