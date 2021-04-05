@@ -1,6 +1,6 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.1.0.0",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.2.0.0",
     "parameters": {
         "vmSize": {
             "type": "string",
@@ -128,7 +128,7 @@
     },
     "resources": [
         {
-            "apiVersion": "2017-03-30",
+            "apiVersion": "2021-03-01",
             "type": "Microsoft.Compute/availabilitySets",
             "name": "[variables('availabilitySetName')]",
             "location": "[resourceGroup().location]",
@@ -142,7 +142,7 @@
             }
         },
         {
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2020-11-01",
             "type": "Microsoft.Network/networkSecurityGroups",
             "name": "[variables('managementNSGName')]",
             "location": "[resourceGroup().location]",
@@ -182,7 +182,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[concat(parameters('envPrefix'),'-',copyIndex(1),'-Management-PIP')]",
-            "apiVersion": "2017-08-01",
+            "apiVersion": "2020-11-01",
             "location": "[resourceGroup().location]",
             "sku": {
                 "name": "Standard"
@@ -202,7 +202,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[concat(parameters('envPrefix'),'-',copyIndex(1),'-Untrust-PIP')]",
-            "apiVersion": "2017-08-01",
+            "apiVersion": "2020-11-01",
             "location": "[resourceGroup().location]",
             "sku": {
                 "name": "Standard"
@@ -222,7 +222,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[concat(variables('untrustLBName'),'-PIP')]",
-            "apiVersion": "2017-08-01",
+            "apiVersion": "2020-11-01",
             "location": "[resourceGroup().location]",
             "sku": {
                 "name": "Standard"
@@ -236,7 +236,7 @@
             }
         },
         {
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2020-11-01",
             "type": "Microsoft.Network/networkInterfaces",
             "name": "[concat(parameters('envPrefix'),'-',copyIndex(1),'-Management-NIC')]",
             "location": "[resourceGroup().location]",
@@ -270,7 +270,7 @@
             }
         },
         {
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2020-11-01",
             "type": "Microsoft.Network/networkInterfaces",
             "name": "[concat(parameters('envPrefix'),'-',copyIndex(1),'-Untrust-NIC')]",
             "location": "[resourceGroup().location]",
@@ -307,7 +307,7 @@
             }
         },
         {
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2020-11-01",
             "type": "Microsoft.Network/networkInterfaces",
             "name": "[concat(parameters('envPrefix'),'-',copyIndex(1),'-Trust-NIC')]",
             "location": "[resourceGroup().location]",
@@ -340,7 +340,7 @@
             }
         },
         {
-            "apiVersion": "2017-03-30",
+            "apiVersion": "2021-03-01",
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[concat(parameters('envPrefix'),'-',copyIndex(1))]",
             "location": "[resourceGroup().location]",
@@ -414,7 +414,7 @@
         {
             "type": "Microsoft.Network/loadBalancers",
             "name": "[variables('untrustLBName')]",
-            "apiVersion": "2017-08-01",
+            "apiVersion": "2020-11-01",
             "location": "[resourceGroup().location]",
             "sku": {
                 "name": "Standard"
@@ -482,7 +482,7 @@
         {
             "type": "Microsoft.Network/loadBalancers",
             "name": "[variables('trustLBName')]",
-            "apiVersion": "2017-08-01",
+            "apiVersion": "2020-11-01",
             "location": "[resourceGroup().location]",
             "sku": {
                 "name": "Standard"
